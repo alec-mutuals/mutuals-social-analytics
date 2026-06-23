@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TikTok OAuth callback — Mutuals Social Analytics</title>
+  <style>
+    body { font-family: -apple-system, system-ui, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; line-height: 1.6; color: #1a1a1a; }
+    h1 { font-size: 1.4rem; }
+    code, .code { font-family: ui-monospace, monospace; }
+    .code { display: block; background: #f2f2f2; padding: 14px; border-radius: 8px; word-break: break-all; margin: 12px 0; font-size: 0.95rem; }
+    button { font-size: 1rem; padding: 8px 16px; border-radius: 8px; border: 1px solid #ccc; background: #2563eb; color: #fff; cursor: pointer; }
+    .muted { color: #666; font-size: 0.9rem; }
+    .err { color: #b91c1c; }
+  </style>
+</head>
+<body>
+  <h1>TikTok authorization</h1>
+  <div id="out"></div>
+  <script>
+    const p = new URLSearchParams(location.search);
+    const code = p.get("code");
+    const state = p.get("state");
+    const error = p.get("error") || p.get("error_description");
+    const out = document.getElementById("out");
+    if (code) {
+      out.innerHTML =
+        '<p>Authorization successful. Copy this code and paste it into the terminal:</p>' +
+        '<div class="code" id="code">' + code + '</div>' +
+        '<button onclick="navigator.clipboard.writeText(document.getElementById(\'code\').textContent)">Copy code</button>' +
+        (state ? '<p class="muted">state: <code>' + state + '</code></p>' : '') +
+        '<p class="muted">You can close this tab after copying.</p>';
+    } else {
+      out.innerHTML = '<p class="err">No authorization code in the URL.' +
+        (error ? ' Error: ' + error : '') + '</p>';
+    }
+  </script>
+</body>
+</html>
