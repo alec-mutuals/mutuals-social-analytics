@@ -81,3 +81,5 @@ The inspection panel uses a soft offset shadow (`0 16px 55px rgba(0,0,0,.2)`) an
 A native dialog opens from the six overview-image targets and selected-post controls. It holds an evidence frame, observed metrics, analysis and method limits. The header carries a Close button; Escape also dismisses the panel. Desktop evidence stays beside the reading column; mobile evidence sits above it. Selecting a sampled scene updates the image and caption, and on mobile scrolls back to the evidence. Scene buttons use a green border and pale green fill (`#eaf3ee`) for the selected state. Their timestamp, label and observation remain readable as separate elements.
 
 The analysis heading uses 30px text on desktop and 25px at the 600px breakpoint. Coverage text distinguishes sampled visual evidence from continuous playback and audio review. Proposed creative tests remain labeled as hypotheses.
+
+Footer extension: linked Alec Pacey credit with muted monochrome X, TikTok and Instagram SVG marks. Social links use #626b70, darkening to #30383c on hover, with 18px icons and 44px link targets. Credit and links wrap onto separate rows below560px.
