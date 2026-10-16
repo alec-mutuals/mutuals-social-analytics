@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-16T16:52:52.483292+00:00",
+  "title": "Collection report",
+  "extensions": {
+    "breakpoints": [
+      {
+        "name": "two-column",
+        "value": "900px"
+      },
+      {
+        "name": "mobile",
+        "value": "560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary collection action.",
+      "html": "<button class=\"ds-primary\">Explore all 40 posts</button>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;min-height:44px;border:1px solid #b7c1c0;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;background:var(--accent,#236658);color:white;border-color:var(--accent,#236658)}.ds-primary:hover{background:#164d41}.ds-primary:focus-visible{outline:3px solid var(--accent,#236658);outline-offset:4px;}"
+    },
+    {
+      "name": "Secondary button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Secondary actions and exports.",
+      "html": "<button class=\"ds-secondary\">Download post data \u00b7 CSV</button>",
+      "css": ".ds-secondary{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;min-height:44px;border:1px solid #b7c1c0;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;background:white;color:var(--ink,#171b1d)}.ds-secondary:hover{background:#ebf1ed}.ds-secondary:focus-visible{outline:3px solid var(--accent,#236658);outline-offset:4px;}"
+    },
+    {
+      "name": "Search field",
+      "kind": "input",
+      "refersTo": "search-input",
+      "description": "Caption and creator filtering.",
+      "html": "<label class=\"ds-field\">Search this collection<input class=\"ds-search\" type=\"search\" placeholder=\"Caption or @creator\"></label>",
+      "css": ".ds-field{display:grid;gap:7px;font-size:13px;font-weight:600;font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;}.ds-search{border:1px solid #aeb9ba;border-radius:6px;background:white;color:var(--ink,#171b1d);padding:10px 12px;min-height:46px;font:inherit;caret-color:var(--accent,#236658)}.ds-search::placeholder{color:#626e72}.ds-search:focus-visible{outline:3px solid var(--accent,#236658);outline-offset:4px;}"
+    },
+    {
+      "name": "Report navigation",
+      "kind": "nav",
+      "description": "Underlined report section and download links.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Report\"><a href=\"#posts\">Posts</a><a href=\"#method\">Method</a><a href=\"data/posts.csv\">Download CSV</a></nav>",
+      "css": ".ds-nav{display:flex;gap:25px;font-size:14px;font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;}.ds-nav a{color:var(--accent,#236658);text-underline-offset:3px}.ds-nav a:hover{text-decoration-thickness:2px}.ds-nav a:focus-visible{outline:3px solid var(--accent,#236658);outline-offset:4px;}"
+    },
+    {
+      "name": "Post card",
+      "kind": "card",
+      "refersTo": "post-card",
+      "description": "Source-linked collected-post record with green share-rate emphasis.",
+      "html": "<article class=\"ds-card\"><h3>@daayushh</h3><p>23.3M views</p><p class=\"ds-ratio\">9.6 shares / 1,000 views</p><a href=\"https://www.tiktok.com/@daayushh/video/7697100942931512606\">Watch original on TikTok</a></article>",
+      "css": ".ds-card{background:var(--surface,#fff);border:1px solid var(--line,#d7dcdd);border-radius:8px;padding:20px;color:var(--ink,#171b1d);font-family:-apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif;}.ds-card h3{font-size:17px;margin:0 0 4px}.ds-card p{font-size:14px}.ds-card .ds-ratio{color:var(--accent,#236658);font-weight:650;border-top:1px solid var(--line,#d7dcdd);padding-top:12px}.ds-card a{font-size:14px;font-weight:600;color:var(--accent,#236658);text-underline-offset:3px}.ds-card a:hover{text-decoration-thickness:2px}.ds-card a:focus-visible{outline:3px solid var(--accent,#236658);outline-offset:4px;}"
+    }
+  ],
+  "narrative": {
+    "overview": "Mode: Read / Operate. Inherits the supplied collection sheet\u2019s white and neutral-gray palette, system sans typography, green share-rate emphasis, clear data hierarchy. Extend the existing review page\u2019s source-linked cards and methodology details."
+  }
+}
