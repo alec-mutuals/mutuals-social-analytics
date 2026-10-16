@@ -1,0 +1,12 @@
+'use strict';
+const posts=window.COLLECTION.posts;
+const $=id=>document.getElementById(id), nf=new Intl.NumberFormat('en-US'), compact=new Intl.NumberFormat('en-US',{notation:'compact',maximumFractionDigits:1});
+const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const date=value=>new Date(value).toLocaleString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit',timeZone:'UTC'})+' UTC';
+function render(){
+ const term=$('search').value.trim().toLowerCase().replace(/^@/,'');const query=$('query').value,sort=$('sort').value;
+ const filtered=posts.filter(p=>(!query||p.query===query)&&(!term||(p.creator+' '+p.caption).toLowerCase().includes(term))).sort((a,b)=>sort==='published_at'?Date.parse(b[sort])-Date.parse(a[sort]):b[sort]-a[sort]);
+ $('count').textContent=filtered.length+' of '+posts.length+' posts';$('empty').hidden=filtered.length>0;
+ $('grid').innerHTML=filtered.map(p=>`<article class="post"><a class="preview" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer" aria-label="Watch @${esc(p.creator)} on TikTok">${p.preview?`<img loading="lazy" width="500" height="800" src="${esc(p.preview)}" alt="Video preview from @${esc(p.creator)}">`:'Preview unavailable — open original post'}</a><div class="post-body"><h3>@${esc(p.creator)}</h3><p class="date">${date(p.published_at)} · ${Number(p.duration_seconds).toFixed(1)}s</p><p class="caption caption-short">${esc(p.caption)}</p><dl class="metrics">${['views','likes','comments','shares','saves'].map(k=>`<div><dt>${k[0].toUpperCase()+k.slice(1)}</dt><dd title="${nf.format(p[k])}">${compact.format(p[k])}</dd></div>`).join('')}</dl><div class="ratio">${p.shares_per_1000_views.toFixed(1)} shares / 1,000 views</div><details><summary>Caption & exact data</summary><p class="caption">${esc(p.caption)}</p><dl class="metrics">${['views','likes','comments','shares','saves'].map(k=>`<div><dt>${k[0].toUpperCase()+k.slice(1)}</dt><dd>${nf.format(p[k])}</dd></div>`).join('')}</dl><p>Found via “${esc(p.query)}”</p><p>Post ID: ${esc(p.id)}<br>Observed: ${date(p.observed_end_utc)}</p></details><a class="source" href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">Watch original on TikTok ↗</a></div></article>`).join('');
+}
+$('search').addEventListener('input',render);$('query').addEventListener('change',render);$('sort').addEventListener('change',render);$('reset').addEventListener('click',()=>{$('search').value='';$('query').value='';$('sort').value='views';render();});render();
